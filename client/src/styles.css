@@ -1,0 +1,275 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --border: #dde3ee;
+  --text: #1b2740;
+  --muted: #7a869c;
+  --accent: #0b5fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.topbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 18px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar h1 {
+  font-size: 18px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  border-radius: 7px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+button.danger {
+  color: #c0392b;
+  border-color: #eab3ac;
+}
+button.danger:hover {
+  background: #fdecea;
+}
+
+.notice {
+  position: absolute;
+  top: 52px;
+  left: 18px;
+  z-index: 10;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  box-shadow: 0 6px 18px rgba(20, 40, 80, 0.12);
+}
+.notice.info {
+  background: #e8f1ff;
+  color: #0b4ec7;
+}
+.notice.error {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.stage-wrap {
+  flex: 1;
+  min-width: 0;
+  padding: 14px;
+}
+
+.stage {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  touch-action: none;
+}
+
+.sidebar {
+  width: 380px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 14px 14px 0;
+  overflow-y: auto;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.card.grow {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+}
+.card h2 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stat-num {
+  font-size: 26px;
+  font-weight: 700;
+}
+.stat-num.clear {
+  color: #2ea043;
+}
+.stat-num.blocked {
+  color: #d14343;
+}
+.stat-num.total {
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.warnings {
+  background: #fff8ec;
+  border-color: #f0d9a8;
+  color: #8a5a00;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.props-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.field input {
+  width: 100%;
+  padding: 5px 7px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+}
+.field input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.help {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #46536c;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.table-wrap {
+  overflow: auto;
+  flex: 1;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+th,
+td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+th {
+  position: sticky;
+  top: 0;
+  background: #f7f9fd;
+  color: var(--muted);
+  font-weight: 600;
+}
+tbody tr {
+  cursor: pointer;
+}
+tbody tr:hover {
+  background: #f2f6ff;
+}
+tr.nearest-row td {
+  font-weight: 600;
+}
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+@media (max-width: 900px) {
+  .body {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    padding: 0 14px 14px;
+  }
+  .stage-wrap {
+    height: 55vh;
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "chorus-sightline-checker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "合唱视线遮挡检查台：平面舞台上指挥与圆形站位的视线遮挡实时判定",
+  "type": "module",
+  "scripts": {
+    "build:server": "tsc -p server/tsconfig.json",
+    "build:client": "tsc -p tsconfig.json && vite build",
+    "build": "npm run build:server && npm run build:client",
+    "selftest": "tsc -p server/tsconfig.json && node scripts/selftest.mjs",
+    "dev:client": "vite",
+    "dev:server": "tsc -p server/tsconfig.json --watch --preserveWatchOutput",
+    "serve": "node --watch server/dist/server/src/index.js",
+    "start": "node server/dist/server/src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8"
+  }
+}
